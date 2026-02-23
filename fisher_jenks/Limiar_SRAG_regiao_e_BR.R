@@ -48,7 +48,8 @@ dados_SRAG<- dados %>%
   mutate(inci=casos*100000/populacao) %>%
   mutate(date = MMWRweek::MMWRweek2Date(epiyear, epiweek) + 6) %>%
   filter(date>"2022-03-13" & date<"2025-07-12") %>% 
-  filter(!is.na(regioes))
+  filter(!is.na(regioes)) %>%
+  filter(epiyear<2025)
 
 nomes_ref<- as.list(unique(dados_SRAG$regioes)) 
 
@@ -136,7 +137,8 @@ dados_SRAG_br<- dados %>%
   mutate(inci=casos*100000/populacao) %>%
   mutate(date = MMWRweek::MMWRweek2Date(epiyear, epiweek) + 6) %>%
   filter(date>"2022-03-13" & date<"2025-07-12") %>% 
-  filter(!is.na(regioes))
+  filter(!is.na(regioes))%>%
+  filter(epiyear<2025)
   
   
   epi <- getBreaks(v = dados_SRAG_br$inci, nclass = 5, method = "fisher")
@@ -206,7 +208,8 @@ dados_SRAG_obt<- dados_obt %>%
   mutate(inci=casos*100000/populacao) %>%
   mutate(date = MMWRweek::MMWRweek2Date(epiyear, epiweek) + 6) %>%
   filter(date>"2022-03-13" & date<"2025-07-12") %>% 
-  filter(!is.na(regioes))
+  filter(!is.na(regioes)) %>%
+  filter(epiyear<2025)
 
 nomes_ref<- as.list(unique(dados_SRAG_obt$regioes)) 
 
@@ -275,7 +278,8 @@ dados_SRAG_obt<- dados_obt %>%
   mutate(inci=casos*100000/populacao) %>%
   mutate(date = MMWRweek::MMWRweek2Date(epiyear, epiweek) + 6) %>%
   filter(date>"2022-03-13" & date<"2025-07-12") %>% 
-  filter(!is.na(regioes))
+  filter(!is.na(regioes))%>%
+  filter(epiyear<2025)
 
 
   

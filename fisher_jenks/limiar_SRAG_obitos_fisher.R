@@ -42,7 +42,8 @@ dados_SRAG<- dados %>%
   mutate(inci=casos*100000/populacao) %>%
   mutate(date = MMWRweek::MMWRweek2Date(epiyear, epiweek) + 6) %>%
   filter(date>"2022-03-13" & date<"2025-07-12") %>% 
-  filter(!is.na(DS_UF_SIGLA))
+  filter(!is.na(DS_UF_SIGLA)) %>%
+  filter(epiyear<2025)
 
 nomes_ref<- as.list(unique(dados_SRAG$DS_UF_SIGLA)) 
 
